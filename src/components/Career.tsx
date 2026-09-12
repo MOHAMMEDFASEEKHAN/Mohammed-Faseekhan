@@ -5,7 +5,7 @@ const Career = () => {
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          My career <span>&</span>
+          My journey <span>&</span>
           <br /> experience
         </h2>
         <div className="career-info">
@@ -15,43 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>DATA ANALYTICS</h4>
+                <h5>Projects & Practical Experience</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2026 — NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Building practical data analytics projects using SQL, Excel, Python, Pandas, NumPy, and Power BI to clean, analyze, visualize, and transform data into meaningful insights.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>AI & AUTOMATION</h4>
+                <h5>Projects & Development</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2026 — NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Developing AI-powered automation workflows using AI tools and n8n to automate repetitive tasks, connect processes, and create smarter data-driven solutions.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>AI-POWERED DEVELOPMENT</h4>
+                <h5>Projects & Development</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2026 — NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Building AI-powered websites and applications using AI-assisted development and modern web technologies, taking ideas from concept and development through integration and deployment.
             </p>
           </div>
         </div>

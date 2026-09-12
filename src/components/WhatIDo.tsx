@@ -87,24 +87,25 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
+              <h3>ANALYSIS</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                I analyze data to uncover meaningful insights and turn raw information into actionable decisions. I work with SQL, Excel, Python, Pandas, NumPy, and Power BI to clean, transform, visualize, and interpret data. I also use AI and automation to make analytical workflows faster and smarter.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">SQL</div>
+                <div className="what-tags">Excel</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">Pandas</div>
+                <div className="what-tags">NumPy</div>
+                <div className="what-tags">Power BI</div>
+                <div className="what-tags">Data Cleaning</div>
+                <div className="what-tags">Data Analysis</div>
+                <div className="what-tags">Data Visualization</div>
+                <div className="what-tags">Exploratory Data Analysis</div>
+                <div className="what-tags">AI</div>
+                <div className="what-tags">n8n</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -127,23 +128,67 @@ const WhatIDo = () => {
               </svg>
             </div>
             <div className="what-corner"></div>
+
+            <div className="what-content-in">
+              <h3>DEVELOP</h3>
+              <h4>Description</h4>
+              <p>
+                I develop intelligent, data-driven solutions by combining programming, AI, automation, and analytics. I use Python, AI, n8n, APIs, and modern technologies to automate workflows and turn ideas into practical, functional solutions.
+              </p>
+              <h5>Skillset & tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Python</div>
+                <div className="what-tags">SQL</div>
+                <div className="what-tags">AI</div>
+                <div className="what-tags">n8n</div>
+                <div className="what-tags">Automation</div>
+                <div className="what-tags">APIs</div>
+                <div className="what-tags">Data Processing</div>
+                <div className="what-tags">Workflow Automation</div>
+                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Git & GitHub</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line
+                  x1="0"
+                  y1="100%"
+                  x2="100%"
+                  y2="100%"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
             <div className="what-content-in">
               <h3>DESIGN</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                I create modern AI-powered websites and applications using AI-assisted development and modern web technologies. I transform ideas into functional digital products, combining user experience, AI, automation, and development from concept to deployment.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">AI-Assisted Development</div>
+                <div className="what-tags">AI Website Development</div>
+                <div className="what-tags">AI App Development</div>
+                <div className="what-tags">HTML</div>
+                <div className="what-tags">CSS</div>
+                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">UI/UX</div>
+                <div className="what-tags">Responsive Design</div>
+                <div className="what-tags">API Integration</div>
+                <div className="what-tags">Automation</div>
+                <div className="what-tags">Git & GitHub</div>
+                <div className="what-tags">Deployment</div>
               </div>
               <div className="what-arrow"></div>
             </div>

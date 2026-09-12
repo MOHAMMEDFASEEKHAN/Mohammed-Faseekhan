@@ -12,16 +12,42 @@ import {
 } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const techData = [
+  { name: "JavaScript", url: "/images/javascript.webp" },
+  { name: "React", url: "/images/react2.webp" },
+  { name: "Next.js", url: "/images/next2.webp" },
+  { name: "Excel", color: "#107C41" },
+  { name: "SQL", color: "#003B57" },
+  { name: "Python", color: "#3776AB" },
+  { name: "Pandas", color: "#150458" },
+  { name: "NumPy", color: "#013243" },
+  { name: "Power BI", color: "#D19C00" },
+  { name: "Tableau", color: "#E97627" },
+  { name: "AI", color: "#000000" },
+  { name: "OpenAI", color: "#412991" },
+  { name: "Gemini", color: "#8E75B2" },
+  { name: "Claude", color: "#D97757" },
+  { name: "n8n", color: "#FF6D5A" },
+  { name: "Make", color: "#000000" },
+  { name: "Zapier", color: "#FF4A00" },
+  { name: "APIs", color: "#2563EB" },
+  { name: "HTML", color: "#E34F26" },
+  { name: "CSS", color: "#1572B6" },
+  { name: "Three.js", color: "#000000" },
+  { name: "PostgreSQL", color: "#336791" },
+  { name: "AWS", color: "#232F3E" },
 ];
+
+const imageUrls = techData.map((tech) => {
+  if (tech.url) return tech.url;
+  let fontSize = 90;
+  if (tech.name.length > 5) fontSize = 75;
+  if (tech.name.length > 8) fontSize = 60;
+  if (tech.name.length > 10) fontSize = 50;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect width="100%" height="100%" fill="#ffffff"/><text x="50%" y="50%" font-family="sans-serif" font-weight="bold" font-size="${fontSize}" fill="${tech.color}" text-anchor="middle" dominant-baseline="middle">${tech.name}</text></svg>`;
+  return `data:image/svg+xml;base64,${btoa(svg)}`;
+});
+
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);

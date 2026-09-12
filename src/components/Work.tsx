@@ -28,7 +28,7 @@ const Work = () => {
     scrollTrigger: {
       trigger: ".work-section",
       start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
+      end: () => `+=${document.querySelector('.work-flex')?.scrollWidth}`, // Use actual scroll width
       scrub: true,
       pin: true,
       id: "work",

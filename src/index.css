@@ -97,7 +97,18 @@ body {
   height: var(--vh);
   margin: auto;
   margin-top: 50px;
-  margin-bottom: -100px;
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 1;
+}
+
+.tech-canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1;
 }
 
 .techstack h2 {
@@ -109,6 +120,8 @@ body {
   left: 0;
   font-weight: 400;
   text-transform: uppercase;
+  z-index: 2;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -120,4 +133,13 @@ body {
   .techstack h2 {
     font-size: 40px;
   }
+}
+
+.profile-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 15%; /* Focuses on the face */
+  display: block;
 }

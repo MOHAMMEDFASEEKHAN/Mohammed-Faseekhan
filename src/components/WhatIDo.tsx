@@ -3,25 +3,23 @@ import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const WhatIDo = () => {
-  const containerRef = useRef<(HTMLDivElement | null)[]>([]);
-  const setRef = (el: HTMLDivElement | null, index: number) => {
-    containerRef.current[index] = el;
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
-        }
-      });
-    }
+    const container = containerRef.current;
+    if (!container || !ScrollTrigger.isTouch) return;
+
+    container
+      .querySelectorAll(".what-content")
+      .forEach((card) => card.classList.remove("what-noTouch"));
+    const onClick = (event: MouseEvent) => {
+      const card = (event.target as HTMLElement).closest(".what-content");
+      if (card instanceof HTMLDivElement && container.contains(card)) {
+        handleClick(card);
+      }
+    };
+    container.addEventListener("click", onClick);
     return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
-      });
+      container.removeEventListener("click", onClick);
     };
   }, []);
   return (
@@ -35,7 +33,7 @@ const WhatIDo = () => {
         </h2>
       </div>
       <div className="what-box">
-        <div className="what-box-in">
+        <div className="what-box-in" ref={containerRef}>
           <div className="what-border2">
             <svg width="100%">
               <line
@@ -58,10 +56,7 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
-          >
+          <div className="what-content what-noTouch">
             <div className="what-border1">
               <svg height="100%">
                 <line
@@ -110,10 +105,7 @@ const WhatIDo = () => {
               <div className="what-arrow"></div>
             </div>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
+          <div className="what-content what-noTouch">
             <div className="what-border1">
               <svg height="100%">
                 <line
@@ -151,10 +143,7 @@ const WhatIDo = () => {
               <div className="what-arrow"></div>
             </div>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 2)}
-          >
+          <div className="what-content what-noTouch">
             <div className="what-border1">
               <svg height="100%">
                 <line

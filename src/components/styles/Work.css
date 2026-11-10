@@ -7,37 +7,33 @@
   color: var(--accentColor);
 }
 .work-section {
-  transition: 0s;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
-  will-change: transform;
-  margin-bottom: 100vh;
+  padding-bottom: 100px;
 }
 .work-container {
   margin: auto;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   align-content: stretch;
 }
 .work-flex {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
-  display: flex;
-  height: 100%;
-  margin-left: -80px;
-  padding-right: 120px;
   position: relative;
 }
 .work-box {
-  padding: 80px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   border-right: 1px solid #363636;
-  flex-shrink: 0;
-  gap: 50px;
-  justify-content: start;
+  gap: 32px;
+  justify-content: space-between;
 }
 .work-flex .work-box:nth-child(even) {
   flex-direction: column-reverse;
@@ -45,16 +41,16 @@
 .work-flex::before,
 .work-flex::after {
   content: "";
-  width: calc(50000vw);
+  width: 100%;
   height: 1px;
   background-color: #363636;
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 0;
-  transform: translateX(-50%);
 }
 .work-flex::after {
-  top: 100%;
+  top: auto;
+  bottom: 0;
 }
 .work-title {
   justify-content: space-between;
@@ -93,6 +89,8 @@
 }
 .work-image-in {
   position: relative;
+  display: block;
+  width: 100%;
 }
 .work-link {
   position: absolute;
@@ -127,6 +125,10 @@
   object-fit: cover;
 }
 .work-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   max-width: 100%;
   max-height: 350px;
 }
@@ -155,28 +157,12 @@
     font-size: 15px;
   }
   .work-box {
-    width: 450px;
-    padding: 50px;
-  }
-  .work-flex {
-    margin-left: -50px;
-    padding-right: 75px;
+    padding: 30px;
   }
   .work-section h2 {
     font-size: 50px;
   }
 }
-@media only screen and (max-width: 1400px) {
-  .work-box {
-    width: 350px;
-    padding: 30px;
-  }
-  .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
-  }
-}
-
 @media only screen and (max-height: 650px) {
   .work-image img {
     max-height: 200px;
@@ -206,6 +192,15 @@
     align-content: normal;
   }
   .work-flex {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     height: auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .work-flex {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .work-box {
+    border-right: 0;
   }
 }

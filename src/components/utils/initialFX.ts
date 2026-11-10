@@ -1,11 +1,31 @@
 import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
-import { smoother } from "../Navbar";
 
 export function initialFX() {
-  document.body.style.overflowY = "auto";
-  smoother.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  if (reducedMotion) {
+    gsap.set("body", { backgroundColor: "#0b080c" });
+    return;
+  }
+
+  if (window.innerWidth <= 1024) {
+    gsap.set("body", { backgroundColor: "#0b080c" });
+    gsap.fromTo(
+      [".landing-info h3", ".landing-intro h2", ".landing-intro h1", ".header"],
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.06,
+        ease: "power2.out",
+      }
+    );
+    return;
+  }
   gsap.to("body", {
     backgroundColor: "#0b080c",
     duration: 0.5,

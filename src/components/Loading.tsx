@@ -10,28 +10,42 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (percent < 100) return;
+
+    let welcomeTimeout: number | undefined;
+    const loadedTimeout = window.setTimeout(() => {
       setLoaded(true);
-      setTimeout(() => {
+      welcomeTimeout = window.setTimeout(() => {
         setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+      }, 300);
+    }, 250);
+    return () => {
+      window.clearTimeout(loadedTimeout);
+      window.clearTimeout(welcomeTimeout);
+    };
+  }, [percent]);
 
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      }
+    if (!isLoaded) return;
+
+    let timeout: number | undefined;
+    let cancelled = false;
+    setClicked(true);
+    import("./utils/initialFX").then(({ initialFX }) => {
+      if (cancelled) return;
+      initialFX();
+      timeout = window.setTimeout(() => setIsLoading(false), 400);
+    }).catch((error: unknown) => {
+      if (cancelled) return;
+      console.error("Unable to initialize the loading transition:", error);
+      setIsLoading(false);
     });
-  }, [isLoaded]);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeout);
+    };
+  }, [isLoaded, setIsLoading]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;
@@ -45,8 +59,12 @@ const Loading = ({ percent }: { percent: number }) => {
   return (
     <>
       <div className="loading-header">
-        <a href="/#" className="loader-title" data-cursor="disable">
-          <img src="/images/profile.jpg" alt="Profile Logo" className="profile-logo" />
+        <a href="#landingDiv" className="loader-title" data-cursor="disable">
+          <img
+            src="/images/profile.jpeg"
+            alt="Portrait of Mohammed Fasee Khan"
+            className="profile-logo"
+          />
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -117,6 +135,10 @@ export const setProgress = (setLoading: (value: number) => void) => {
     setLoading(100);
   }
 
+  function cancel() {
+    clearInterval(interval);
+  }
+
   function loaded() {
     return new Promise<number>((resolve) => {
       clearInterval(interval);
@@ -131,5 +153,5 @@ export const setProgress = (setLoading: (value: number) => void) => {
       }, 2);
     });
   }
-  return { loaded, percent, clear };
+  return { loaded, percent, clear, cancel };
 };

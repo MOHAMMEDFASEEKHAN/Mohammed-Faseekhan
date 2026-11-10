@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="contact-container">
         <h3>Contact</h3>
         <div className="contact-flex">
-          <div className="contact-box">
+          <div className="contact-box" data-reveal>
             <h4>Email</h4>
             <p>
               <a href="mailto:faseekhans2007@gmail.com" data-cursor="disable">
@@ -21,7 +21,7 @@ const Contact = () => {
               </a>
             </p>
           </div>
-          <div className="contact-box">
+          <div className="contact-box" data-reveal>
             <h4>Social</h4>
             <a
               href="https://github.com/settings/profile"
@@ -60,7 +60,7 @@ const Contact = () => {
               Instagram <MdArrowOutward />
             </a>
           </div>
-          <div className="contact-box">
+          <div className="contact-box" data-reveal>
             <h2>
               Designed and Developed <br /> by <span>MOHAMMED FASEE KHAN</span>
             </h2>
